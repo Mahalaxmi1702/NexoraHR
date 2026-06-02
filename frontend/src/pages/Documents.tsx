@@ -151,7 +151,7 @@ export default function Documents() {
       responseType: 'blob',
     })
 
-    const contentType = response.headers['content-type'] || 'application/octet-stream'
+    const contentType =String(response.headers["content-type"] ?? "");
     const blob = new Blob([response.data], { type: contentType })
     const blobUrl = window.URL.createObjectURL(blob)
 
@@ -183,7 +183,7 @@ export default function Documents() {
       responseType: 'blob',
     })
 
-    const contentType = response.headers['content-type'] || 'application/pdf'
+    const contentType =String(response.headers["content-type"] ?? "");
     const blob = new Blob([response.data], { type: contentType })
     const blobUrl = window.URL.createObjectURL(blob)
 
