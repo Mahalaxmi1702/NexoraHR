@@ -6,12 +6,12 @@ This project is designed as a functional prototype for **K Labs India, Chennai**
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Clone the Repository
 
 ```bash
-git clone YOUR_GITHUB_REPO_LINK_HERE
+git clone   https://github.com/Mahalaxmi1702/NexoraHR
 cd nexorahr
 ```
 
@@ -74,7 +74,7 @@ The Gemini API key is optional. The AI assistant also works with local database 
 
 ---
 
-## 🔑 Demo Credentials
+##  Demo Credentials
 
 | Role     | Email                                                 | Password    |
 | -------- | ----------------------------------------------------- | ----------- |
@@ -85,7 +85,7 @@ The Gemini API key is optional. The AI assistant also works with local database 
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```txt
 nexorahr/
@@ -143,7 +143,7 @@ nexorahr/
 
 ---
 
-## ✅ Features Implemented
+##  Features Implemented
 
 ### Authentication and Role Management
 
@@ -215,7 +215,7 @@ nexorahr/
 
 ---
 
-## 🧪 Demo Notes
+##  Demo Notes
 
 This project is configured for local demo usage.
 
@@ -236,7 +236,7 @@ Recommended demo flow:
 
 ---
 
-## 📝 API Endpoints
+##  API Endpoints
 
 All backend endpoints are prefixed with `/api`.
 
@@ -310,7 +310,7 @@ All backend endpoints are prefixed with `/api`.
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Backend
 
@@ -339,7 +339,7 @@ All backend endpoints are prefixed with `/api`.
 
 ---
 
-## ⚠️ Current Limitations
+## Current Limitations
 
 This project is demo-ready and functional for local evaluation. The following features can be improved for production deployment:
 
@@ -353,7 +353,7 @@ This project is demo-ready and functional for local evaluation. The following fe
 
 ---
 
-## 🎯 Demo Data Included
+## Demo Data Included
 
 The project includes seeded demo data for easier evaluation:
 
@@ -366,7 +366,7 @@ The project includes seeded demo data for easier evaluation:
 
 ---
 
-## 🔒 Security Note
+## Security Note
 
 For security reasons, do not upload real environment files or sensitive credentials to GitHub.
 
@@ -387,7 +387,7 @@ __pycache__/
 
 ---
 
-## 👩‍💻 Developed For
+## Developed For
 
 **K Labs India, Chennai**
 
