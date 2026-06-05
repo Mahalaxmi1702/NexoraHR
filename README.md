@@ -1,56 +1,113 @@
 # NexoraHR - AI-Powered HRMS for K Labs India
 
-A production-grade, intelligent Human Resource Management System built with FastAPI + React + Tailwind CSS. Features a stunning modern UI with dark/light theme toggle, role-based access control, and an AI-powered HR assistant.
+A demo-ready intelligent Human Resource Management System built with **FastAPI**, **React**, and **Tailwind CSS**. It includes role-based access control, employee/admin dashboards, attendance tracking, leave management, payroll records, document handling, and an AI-powered HR assistant.
+
+This project is designed as a functional prototype for **K Labs India, Chennai**, and can be run locally for evaluation and demo purposes.
+
+---
 
 ## 🚀 Quick Start
 
-### Backend
+### 1. Clone the Repository
+
+```bash
+git clone YOUR_GITHUB_REPO_LINK_HERE
+cd nexorahr
+```
+
+---
+
+## Backend Setup
+
 ```bash
 cd backend
 python -m pip install -r requirements.txt
 python -m uvicorn app.main:app --reload --port 8000
 ```
 
-### Frontend
+The backend will run at:
+
+```txt
+http://localhost:8000
+```
+
+API documentation will be available at:
+
+```txt
+http://localhost:8000/docs
+```
+
+---
+
+## Frontend Setup
+
+Open a new terminal and run:
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Open `http://localhost:5173` in your browser.
+The frontend will run at:
+
+```txt
+http://localhost:5173
+```
+
+Open this URL in your browser to use the application.
+
+---
+
+## Environment Variables
+
+Create a `.env` file inside the `backend` folder if you want to use optional AI features.
+
+Example:
+
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
+SECRET_KEY=your_secret_key_here
+```
+
+The Gemini API key is optional. The AI assistant also works with local database intelligence without an external API key.
+
+---
 
 ## 🔑 Demo Credentials
 
-| Role | Email | Password |
-|------|-------|----------|
-| Admin | admin@nexorahr.com | admin123 |
-| HR | hr@nexorahr.com | hr12345 |
-| Employee | employee@nexorahr.com | employee123 |
-| Manager | vikram@nexorahr.com | employee123 |
+| Role     | Email                                                 | Password    |
+| -------- | ----------------------------------------------------- | ----------- |
+| Admin    | [admin@nexorahr.com](mailto:admin@nexorahr.com)       | admin123    |
+| HR       | [hr@nexorahr.com](mailto:hr@nexorahr.com)             | hr12345     |
+| Employee | [employee@nexorahr.com](mailto:employee@nexorahr.com) | employee123 |
+| Manager  | [vikram@nexorahr.com](mailto:vikram@nexorahr.com)     | employee123 |
+
+---
 
 ## 📁 Project Structure
 
-```
+```txt
 nexorahr/
 ├── backend/
 │   ├── app/
 │   │   ├── main.py              # FastAPI app entry
 │   │   ├── database.py          # SQLAlchemy setup
-│   │   ├── models.py            # All DB models
+│   │   ├── models.py            # Database models
 │   │   ├── schemas.py           # Pydantic schemas
-│   │   ├── auth.py              # JWT auth utilities
+│   │   ├── auth.py              # JWT authentication utilities
 │   │   ├── seed.py              # Demo data seeder
 │   │   └── routers/
-│   │       ├── auth.py          # Login, register, me
-│   │       ├── employees.py     # CRUD employees
-│   │       ├── attendance.py    # Check-in/out, history
-│   │       ├── leave.py         # Apply, approve, reject
-│   │       ├── payroll.py       # Salary records
-│   │       ├── documents.py     # Upload, manage docs
-│   │       ├── dashboard.py     # Admin metrics
-│   │       └── ai.py            # NexoraAI chat
+│   │       ├── auth.py          # Login, register, current user
+│   │       ├── employees.py     # Employee CRUD
+│   │       ├── attendance.py    # Check-in, check-out, history
+│   │       ├── leave.py         # Leave apply, approve, reject
+│   │       ├── payroll.py       # Payroll and salary records
+│   │       ├── documents.py     # Document upload and management
+│   │       ├── dashboard.py     # Dashboard metrics
+│   │       └── ai.py            # NexoraAI assistant
 │   └── requirements.txt
+│
 └── frontend/
     ├── src/
     │   ├── main.tsx
@@ -84,110 +141,262 @@ nexorahr/
     └── index.html
 ```
 
-## ✅ What's Fully Working
+---
 
-### Authentication & Roles
-- [x] JWT-based login/register with secure password hashing
-- [x] Role-based access: admin, hr, manager, employee
-- [x] Route protection and redirects
-- [x] Demo account seeder (runs automatically on startup)
+## ✅ Features Implemented
+
+### Authentication and Role Management
+
+* JWT-based login and registration
+* Secure password hashing
+* Role-based access for Admin, HR, Manager, and Employee
+* Protected routes
+* Automatic redirects based on authentication status
+* Demo account seeding on backend startup
+
+---
 
 ### Employee Portal
-- [x] Personal dashboard with attendance, leave balance, salary
-- [x] Check-in / Check-out with today status
-- [x] Attendance history with work hours
-- [x] Leave application with type, dates, reason
-- [x] Leave status tracking with HR replies
-- [x] Leave balance display
-- [x] Salary/payroll history with payslip details
-- [x] Document upload and viewing
-- [x] AI Assistant with contextual queries
 
-### Admin/HR Portal
-- [x] Full dashboard with workforce metrics, charts
-- [x] Employee CRUD with search, filter, department filter
-- [x] All attendance records view
-- [x] Team attendance for today
-- [x] Leave request approval/rejection with reply messages
-- [x] Payroll management - add records for any employee
-- [x] All employee documents with search/filter
-- [x] AI Assistant with workforce analytics queries
+* Personal employee dashboard
+* Attendance check-in and check-out
+* Today’s attendance status
+* Attendance history with work hours
+* Leave application with leave type, dates, and reason
+* Leave status tracking with HR replies
+* Leave balance display
+* Salary and payroll history
+* Payslip details
+* Document upload and viewing
+* AI assistant for employee-related queries
 
-### AI Assistant (NexoraAI)
-- [x] Role-aware responses (employee vs admin)
-- [x] Local intelligence analyzing real database data
-- [x] Gemini API integration (optional, via env var)
-- [x] Contextual suggestions
-- [x] Professional, data-backed responses
+---
 
-### UI/UX
-- [x] Modern glassmorphism design with gradients
-- [x] Dark/Light theme toggle (persisted in localStorage)
-- [x] Responsive layout (mobile + desktop)
-- [x] Animated transitions with Framer Motion
-- [x] Charts and visual metrics on dashboard
-- [x] Loading states and empty states
-- [x] Professional landing page
-- [x] Collapsible sidebar
-- [x] Mobile bottom navigation
+### Admin and HR Portal
 
-## ⚠️ Honest Limitations
+* Admin dashboard with workforce metrics
+* Employee management with create, view, update, and delete functionality
+* Employee search and department filtering
+* Attendance records view
+* Team attendance overview
+* Leave request approval and rejection
+* HR reply messages for leave decisions
+* Payroll record creation and management
+* Employee document management
+* AI assistant for workforce and HR analytics
 
-1. **File Upload**: Document upload creates metadata but stores files locally in `uploads/` folder. For production, integrate S3/cloud storage.
-2. **Real-time**: No WebSocket real-time updates. Refresh page for latest data.
-3. **Email**: No email notifications for leave approvals.
-4. **Password Change**: Settings page has UI but backend password update endpoint is not implemented (can be added easily).
-5. **Gemini Key**: AI works fully with local intelligence. To use Gemini, set `GEMINI_API_KEY` environment variable.
-6. **Database**: SQLite for demo. For production, switch to PostgreSQL.
-7. **Payroll PDF**: No PDF payslip generation yet.
+---
 
-## 🛠️ Tech Stack
+### NexoraAI Assistant
 
-- **Backend**: FastAPI, SQLAlchemy, SQLite, JWT, Passlib, Pydantic
-- **Frontend**: React 18, Vite, TypeScript, Tailwind CSS, Recharts, Framer Motion, Lucide React
-- **AI**: Local intelligence + optional Gemini 1.5 Flash
+* Role-aware AI responses
+* Employee-side contextual answers
+* Admin/HR-side workforce insights
+* Local intelligence using real database records
+* Optional Gemini API integration
+* Contextual HR suggestions
+* Professional and data-backed responses
+
+---
+
+### UI and User Experience
+
+* Modern responsive interface
+* Dark and light theme toggle
+* Theme preference stored in local storage
+* Dashboard cards and visual metrics
+* Charts using Recharts
+* Animated transitions using Framer Motion
+* Collapsible sidebar
+* Mobile-friendly layout
+* Loading states
+* Empty states
+* Professional landing page
+
+---
+
+## 🧪 Demo Notes
+
+This project is configured for local demo usage.
+
+On backend startup, demo users and sample HR data are automatically seeded so reviewers can test the system immediately without manual setup.
+
+For evaluation, login using any of the demo credentials above and test both employee-side and admin/HR-side workflows.
+
+Recommended demo flow:
+
+1. Login as Admin or HR.
+2. View dashboard metrics.
+3. Manage employees.
+4. Review attendance records.
+5. Approve or reject leave requests.
+6. Add or view payroll records.
+7. Open the AI assistant and ask HR-related questions.
+8. Login as Employee and test check-in, check-out, leave, payroll, and AI assistant features.
+
+---
 
 ## 📝 API Endpoints
 
-All endpoints prefixed with `/api`:
+All backend endpoints are prefixed with `/api`.
 
-- `POST /auth/register` - Create employee account
-- `POST /auth/login` - Login (OAuth2 form)
-- `GET /auth/me` - Current user
-- `GET /employees/` - List employees (admin/hr)
-- `POST /employees/` - Create employee
-- `GET /employees/{id}` - Get employee
-- `PATCH /employees/{id}` - Update employee
-- `DELETE /employees/{id}` - Delete employee
-- `GET /dashboard/metrics` - Dashboard metrics
-- `POST /attendance/check-in` - Check in
-- `POST /attendance/check-out` - Check out
-- `GET /attendance/my-attendance` - My history
-- `GET /attendance/team-attendance` - Team today
-- `GET /attendance/today` - Today status
-- `GET /leave/my-leaves` - My leaves
-- `POST /leave/apply` - Apply leave
-- `GET /leave/requests` - All requests (admin)
-- `GET /leave/pending-approvals` - Pending (admin)
-- `PATCH /leave/{id}/approve` - Approve
-- `PATCH /leave/{id}/reject` - Reject
-- `GET /leave/balance` - Leave balance
-- `GET /payroll/my-payslips` - My payslips
-- `GET /payroll/all` - All payroll (admin)
-- `POST /payroll/` - Create payroll (admin)
-- `GET /documents/` - List documents
-- `POST /documents/upload` - Upload document
-- `DELETE /documents/{id}` - Delete document
-- `POST /ai/chat` - AI assistant chat
+### Authentication
 
-## 🎯 Demo Ready For K Labs
+| Method | Endpoint         | Description             |
+| ------ | ---------------- | ----------------------- |
+| POST   | `/auth/register` | Create employee account |
+| POST   | `/auth/login`    | Login user              |
+| GET    | `/auth/me`       | Get current user        |
 
-The project is fully functional for a demo with:
-- 7 pre-seeded employees with realistic data
-- 30 days of attendance history
-- Multiple leave requests (pending/approved/rejected)
-- 5 months of payroll records
-- Documents for each employee
-- Working AI assistant with contextual answers
+### Employees
 
-Built with ❤️ for K Labs India, Chennai.
+| Method | Endpoint          | Description          |
+| ------ | ----------------- | -------------------- |
+| GET    | `/employees/`     | List employees       |
+| POST   | `/employees/`     | Create employee      |
+| GET    | `/employees/{id}` | Get employee details |
+| PATCH  | `/employees/{id}` | Update employee      |
+| DELETE | `/employees/{id}` | Delete employee      |
+
+### Dashboard
+
+| Method | Endpoint             | Description           |
+| ------ | -------------------- | --------------------- |
+| GET    | `/dashboard/metrics` | Get dashboard metrics |
+
+### Attendance
+
+| Method | Endpoint                      | Description                             |
+| ------ | ----------------------------- | --------------------------------------- |
+| POST   | `/attendance/check-in`        | Employee check-in                       |
+| POST   | `/attendance/check-out`       | Employee check-out                      |
+| GET    | `/attendance/my-attendance`   | Get current employee attendance history |
+| GET    | `/attendance/team-attendance` | Get team attendance                     |
+| GET    | `/attendance/today`           | Get today’s attendance status           |
+
+### Leave
+
+| Method | Endpoint                   | Description                        |
+| ------ | -------------------------- | ---------------------------------- |
+| GET    | `/leave/my-leaves`         | Get current employee leave history |
+| POST   | `/leave/apply`             | Apply for leave                    |
+| GET    | `/leave/requests`          | Get all leave requests             |
+| GET    | `/leave/pending-approvals` | Get pending leave approvals        |
+| PATCH  | `/leave/{id}/approve`      | Approve leave request              |
+| PATCH  | `/leave/{id}/reject`       | Reject leave request               |
+| GET    | `/leave/balance`           | Get leave balance                  |
+
+### Payroll
+
+| Method | Endpoint               | Description                   |
+| ------ | ---------------------- | ----------------------------- |
+| GET    | `/payroll/my-payslips` | Get current employee payslips |
+| GET    | `/payroll/all`         | Get all payroll records       |
+| POST   | `/payroll/`            | Create payroll record         |
+
+### Documents
+
+| Method | Endpoint            | Description     |
+| ------ | ------------------- | --------------- |
+| GET    | `/documents/`       | List documents  |
+| POST   | `/documents/upload` | Upload document |
+| DELETE | `/documents/{id}`   | Delete document |
+
+### AI Assistant
+
+| Method | Endpoint   | Description                  |
+| ------ | ---------- | ---------------------------- |
+| POST   | `/ai/chat` | Chat with NexoraAI assistant |
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+
+* FastAPI
+* SQLAlchemy
+* SQLite
+* JWT Authentication
+* Passlib
+* Pydantic
+* Uvicorn
+
+### Frontend
+
+* React 18
+* Vite
+* TypeScript
+* Tailwind CSS
+* Recharts
+* Framer Motion
+* Lucide React
+
+### AI
+
+* Local database intelligence
+* Optional Gemini 1.5 Flash integration
+
+---
+
+## ⚠️ Current Limitations
+
+This project is demo-ready and functional for local evaluation. The following features can be improved for production deployment:
+
+1. Document files are stored locally in the `uploads/` folder. For production, cloud storage such as AWS S3 or Cloudinary can be integrated.
+2. Real-time updates are not implemented yet. Users may need to refresh the page to see the latest updates.
+3. Email notifications for leave approvals and HR updates are not implemented yet.
+4. Password change UI exists, but the backend password update endpoint is not implemented yet.
+5. Gemini API integration is optional. Without the API key, the AI assistant continues to work using local database intelligence.
+6. SQLite is used for demo purposes. For production, PostgreSQL is recommended.
+7. PDF payslip generation is not implemented yet.
+
+---
+
+## 🎯 Demo Data Included
+
+The project includes seeded demo data for easier evaluation:
+
+* 7 sample employees
+* 30 days of attendance history
+* Multiple leave requests with pending, approved, and rejected statuses
+* 5 months of payroll records
+* Sample document records
+* Working AI assistant with contextual HR answers
+
+---
+
+## 🔒 Security Note
+
+For security reasons, do not upload real environment files or sensitive credentials to GitHub.
+
+The repository should include:
+
+```txt
+.env.example
+```
+
+The repository should not include:
+
+```txt
+.env
+venv/
+node_modules/
+__pycache__/
+```
+
+---
+
+## 👩‍💻 Developed For
+
+**K Labs India, Chennai**
+
+This project was built as a demo-ready HRMS and employee management system with AI-assisted HR workflows.
+
+---
+
+## Developer
+
+**R. Mahalaxmi**
+B.Tech CSE - Artificial Intelligence and Machine Learning
+VIT Vellore
